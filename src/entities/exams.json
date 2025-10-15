@@ -1,0 +1,109 @@
+
+{
+  "name": "exams",
+  "options": {
+    "validator": {
+      "$jsonSchema": {
+        "bsonType": "object",
+        "required": ["student_id", "type", "category", "status", "createdAt"],
+        "properties": {
+          "student_id": {
+            "bsonType": "string",
+            "description": "ID do aluno"
+          },
+          "type": {
+            "bsonType": "string",
+            "enum": ["teorico", "pratico", "simulado"],
+            "description": "Tipo do exame"
+          },
+          "category": {
+            "bsonType": "string",
+            "enum": ["A", "B", "AB", "C", "D", "E"],
+            "description": "Categoria do exame"
+          },
+          "questions": {
+            "bsonType": "array",
+            "description": "Questões do exame"
+          },
+          "answers": {
+            "bsonType": "array",
+            "description": "Respostas do aluno"
+          },
+          "score": {
+            "bsonType": "int",
+            "minimum": 0,
+            "maximum": 100,
+            "description": "Pontuação obtida"
+          },
+          "totalQuestions": {
+            "bsonType": "int",
+            "minimum": 1,
+            "description": "Total de questões"
+          },
+          "correctAnswers": {
+            "bsonType": "int",
+            "minimum": 0,
+            "description": "Respostas corretas"
+          },
+          "status": {
+            "bsonType": "string",
+            "enum": ["agendado", "em_andamento", "concluido", "aprovado", "reprovado"],
+            "description": "Status do exame"
+          },
+          "startTime": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Hora de início"
+          },
+          "endTime": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Hora de término"
+          },
+          "duration": {
+            "bsonType": "int",
+            "minimum": 1,
+            "description": "Duração em minutos"
+          },
+          "examiner": {
+            "bsonType": "string",
+            "description": "Examinador responsável"
+          },
+          "location": {
+            "bsonType": "string",
+            "description": "Local do exame"
+          },
+          "vehicle": {
+            "bsonType": "string",
+            "description": "Veículo usado (exame prático)"
+          },
+          "route": {
+            "bsonType": "string",
+            "description": "Rota do exame prático"
+          },
+          "feedback": {
+            "bsonType": "string",
+            "description": "Feedback do examinador"
+          },
+          "certificate": {
+            "bsonType": "string",
+            "description": "URL do certificado"
+          },
+          "createdAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Data de criação"
+          },
+          "updatedAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Data de atualização"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "validationLevel": "moderate",
+    "validationAction": "warn"
+  }
+}

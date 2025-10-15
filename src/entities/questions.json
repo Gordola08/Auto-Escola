@@ -1,0 +1,105 @@
+
+{
+  "name": "questions",
+  "options": {
+    "validator": {
+      "$jsonSchema": {
+        "bsonType": "object",
+        "required": ["question", "options", "correct", "category", "difficulty", "createdAt"],
+        "properties": {
+          "question": {
+            "bsonType": "string",
+            "description": "Texto da questão"
+          },
+          "options": {
+            "bsonType": "array",
+            "description": "Opções de resposta"
+          },
+          "correct": {
+            "bsonType": "int",
+            "minimum": 0,
+            "description": "Índice da resposta correta"
+          },
+          "explanation": {
+            "bsonType": "string",
+            "description": "Explicação da resposta"
+          },
+          "category": {
+            "bsonType": "string",
+            "enum": ["legislacao", "sinalizacao", "direcao_defensiva", "primeiros_socorros", "meio_ambiente", "mecanica"],
+            "description": "Categoria da questão"
+          },
+          "subcategory": {
+            "bsonType": "string",
+            "description": "Subcategoria específica"
+          },
+          "difficulty": {
+            "bsonType": "string",
+            "enum": ["facil", "medio", "dificil"],
+            "description": "Nível de dificuldade"
+          },
+          "license": {
+            "bsonType": "array",
+            "description": "Categorias de habilitação aplicáveis"
+          },
+          "image": {
+            "bsonType": "string",
+            "description": "URL da imagem da questão"
+          },
+          "video": {
+            "bsonType": "string",
+            "description": "URL do vídeo explicativo"
+          },
+          "tags": {
+            "bsonType": "array",
+            "description": "Tags para busca"
+          },
+          "statistics": {
+            "bsonType": "object",
+            "properties": {
+              "totalAnswers": {
+                "bsonType": "int",
+                "minimum": 0
+              },
+              "correctAnswers": {
+                "bsonType": "int",
+                "minimum": 0
+              },
+              "successRate": {
+                "bsonType": "number",
+                "minimum": 0,
+                "maximum": 100
+              }
+            },
+            "description": "Estatísticas da questão"
+          },
+          "active": {
+            "bsonType": "bool",
+            "description": "Questão ativa"
+          },
+          "author": {
+            "bsonType": "string",
+            "description": "Autor da questão"
+          },
+          "source": {
+            "bsonType": "string",
+            "description": "Fonte da questão"
+          },
+          "createdAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Data de criação"
+          },
+          "updatedAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Data de atualização"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "validationLevel": "moderate",
+    "validationAction": "warn"
+  }
+}

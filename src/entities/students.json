@@ -1,0 +1,113 @@
+
+{
+  "name": "students",
+  "options": {
+    "validator": {
+      "$jsonSchema": {
+        "bsonType": "object",
+        "required": ["user_id", "name", "email", "phone", "category", "status", "createdAt"],
+        "properties": {
+          "user_id": {
+            "bsonType": "string",
+            "description": "ID do usuário vinculado"
+          },
+          "name": {
+            "bsonType": "string",
+            "description": "Nome completo do aluno"
+          },
+          "email": {
+            "bsonType": "string",
+            "description": "Email do aluno"
+          },
+          "phone": {
+            "bsonType": "string",
+            "description": "Telefone do aluno"
+          },
+          "cpf": {
+            "bsonType": "string",
+            "description": "CPF do aluno"
+          },
+          "dateOfBirth": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Data de nascimento"
+          },
+          "address": {
+            "bsonType": "object",
+            "description": "Endereço completo"
+          },
+          "category": {
+            "bsonType": "string",
+            "enum": ["A", "B", "AB", "C", "D", "E"],
+            "description": "Categoria da habilitação"
+          },
+          "status": {
+            "bsonType": "string",
+            "enum": ["matriculado", "cursando_teorico", "cursando_pratico", "aprovado", "reprovado", "formado"],
+            "description": "Status atual do aluno"
+          },
+          "theoreticalHours": {
+            "bsonType": "int",
+            "minimum": 0,
+            "description": "Horas teóricas concluídas"
+          },
+          "practicalHours": {
+            "bsonType": "int", 
+            "minimum": 0,
+            "description": "Horas práticas concluídas"
+          },
+          "theoreticalRequired": {
+            "bsonType": "int",
+            "minimum": 0,
+            "description": "Horas teóricas necessárias"
+          },
+          "practicalRequired": {
+            "bsonType": "int",
+            "minimum": 0,
+            "description": "Horas práticas necessárias"
+          },
+          "instructor": {
+            "bsonType": "string",
+            "description": "Instrutor responsável"
+          },
+          "startDate": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Data de início do curso"
+          },
+          "expectedEndDate": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Data prevista de conclusão"
+          },
+          "avatar": {
+            "bsonType": "string",
+            "description": "URL da foto do aluno"
+          },
+          "points": {
+            "bsonType": "int",
+            "minimum": 0,
+            "description": "Pontos de gamificação"
+          },
+          "badges": {
+            "bsonType": "array",
+            "description": "Badges conquistados"
+          },
+          "createdAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Data de criação"
+          },
+          "updatedAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Data de atualização"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "validationLevel": "moderate",
+    "validationAction": "warn"
+  }
+}

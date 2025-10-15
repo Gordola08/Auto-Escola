@@ -1,0 +1,108 @@
+
+{
+  "name": "vehicles",
+  "options": {
+    "validator": {
+      "$jsonSchema": {
+        "bsonType": "object",
+        "required": ["plate", "model", "category", "status", "createdAt"],
+        "properties": {
+          "plate": {
+            "bsonType": "string",
+            "description": "Placa do veículo"
+          },
+          "model": {
+            "bsonType": "string",
+            "description": "Modelo do veículo"
+          },
+          "brand": {
+            "bsonType": "string",
+            "description": "Marca do veículo"
+          },
+          "year": {
+            "bsonType": "int",
+            "minimum": 1990,
+            "description": "Ano do veículo"
+          },
+          "category": {
+            "bsonType": "string",
+            "enum": ["A", "B", "C", "D", "E"],
+            "description": "Categoria do veículo"
+          },
+          "type": {
+            "bsonType": "string",
+            "enum": ["carro", "moto", "caminhao", "onibus"],
+            "description": "Tipo do veículo"
+          },
+          "transmission": {
+            "bsonType": "string",
+            "enum": ["manual", "automatico"],
+            "description": "Tipo de transmissão"
+          },
+          "fuel": {
+            "bsonType": "string",
+            "enum": ["gasolina", "etanol", "flex", "diesel", "eletrico"],
+            "description": "Tipo de combustível"
+          },
+          "status": {
+            "bsonType": "string",
+            "enum": ["disponivel", "em_uso", "manutencao", "inativo"],
+            "description": "Status do veículo"
+          },
+          "mileage": {
+            "bsonType": "int",
+            "minimum": 0,
+            "description": "Quilometragem atual"
+          },
+          "lastMaintenance": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Data da última manutenção"
+          },
+          "nextMaintenance": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Data da próxima manutenção"
+          },
+          "insurance": {
+            "bsonType": "object",
+            "properties": {
+              "company": {
+                "bsonType": "string"
+              },
+              "policy": {
+                "bsonType": "string"
+              },
+              "expiryDate": {
+                "bsonType": "string",
+                "title": "datetime"
+              }
+            },
+            "description": "Informações do seguro"
+          },
+          "features": {
+            "bsonType": "array",
+            "description": "Características especiais"
+          },
+          "photos": {
+            "bsonType": "array",
+            "description": "Fotos do veículo"
+          },
+          "createdAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Data de criação"
+          },
+          "updatedAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Data de atualização"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "validationLevel": "moderate",
+    "validationAction": "warn"
+  }
+}

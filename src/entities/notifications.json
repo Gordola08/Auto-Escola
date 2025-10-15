@@ -1,0 +1,94 @@
+
+{
+  "name": "notifications",
+  "options": {
+    "validator": {
+      "$jsonSchema": {
+        "bsonType": "object",
+        "required": ["user_id", "title", "message", "type", "status", "createdAt"],
+        "properties": {
+          "user_id": {
+            "bsonType": "string",
+            "description": "ID do usuário destinatário"
+          },
+          "title": {
+            "bsonType": "string",
+            "description": "Título da notificação"
+          },
+          "message": {
+            "bsonType": "string",
+            "description": "Mensagem da notificação"
+          },
+          "type": {
+            "bsonType": "string",
+            "enum": ["aula", "pagamento", "exame", "sistema", "promocao", "lembrete"],
+            "description": "Tipo da notificação"
+          },
+          "priority": {
+            "bsonType": "string",
+            "enum": ["baixa", "normal", "alta", "urgente"],
+            "description": "Prioridade da notificação"
+          },
+          "status": {
+            "bsonType": "string",
+            "enum": ["pendente", "enviada", "lida", "arquivada"],
+            "description": "Status da notificação"
+          },
+          "channels": {
+            "bsonType": "array",
+            "description": "Canais de envio (app, email, sms, whatsapp)"
+          },
+          "data": {
+            "bsonType": "object",
+            "description": "Dados adicionais da notificação"
+          },
+          "actionUrl": {
+            "bsonType": "string",
+            "description": "URL de ação da notificação"
+          },
+          "icon": {
+            "bsonType": "string",
+            "description": "Ícone da notificação"
+          },
+          "image": {
+            "bsonType": "string",
+            "description": "Imagem da notificação"
+          },
+          "scheduledFor": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Data agendada para envio"
+          },
+          "sentAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Data de envio"
+          },
+          "readAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Data de leitura"
+          },
+          "expiresAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Data de expiração"
+          },
+          "createdAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Data de criação"
+          },
+          "updatedAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Data de atualização"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "validationLevel": "moderate",
+    "validationAction": "warn"
+  }
+}

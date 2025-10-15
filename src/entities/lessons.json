@@ -1,0 +1,99 @@
+
+{
+  "name": "lessons",
+  "options": {
+    "validator": {
+      "$jsonSchema": {
+        "bsonType": "object",
+        "required": ["student_id", "instructor_id", "type", "scheduledDate", "status", "createdAt"],
+        "properties": {
+          "student_id": {
+            "bsonType": "string",
+            "description": "ID do aluno"
+          },
+          "instructor_id": {
+            "bsonType": "string",
+            "description": "ID do instrutor"
+          },
+          "type": {
+            "bsonType": "string",
+            "enum": ["teorica", "pratica", "simulador"],
+            "description": "Tipo da aula"
+          },
+          "scheduledDate": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Data e hora agendada"
+          },
+          "duration": {
+            "bsonType": "int",
+            "minimum": 30,
+            "description": "Duração em minutos"
+          },
+          "status": {
+            "bsonType": "string",
+            "enum": ["agendada", "confirmada", "em_andamento", "concluida", "cancelada", "remarcada"],
+            "description": "Status da aula"
+          },
+          "vehicle": {
+            "bsonType": "string",
+            "description": "Veículo utilizado (para aulas práticas)"
+          },
+          "route": {
+            "bsonType": "string",
+            "description": "Rota da aula prática"
+          },
+          "evaluation": {
+            "bsonType": "object",
+            "properties": {
+              "score": {
+                "bsonType": "int",
+                "minimum": 0,
+                "maximum": 10
+              },
+              "skills": {
+                "bsonType": "object"
+              },
+              "comments": {
+                "bsonType": "string"
+              },
+              "approved": {
+                "bsonType": "bool"
+              }
+            },
+            "description": "Avaliação da aula"
+          },
+          "attendance": {
+            "bsonType": "bool",
+            "description": "Presença confirmada"
+          },
+          "notes": {
+            "bsonType": "string",
+            "description": "Observações da aula"
+          },
+          "weather": {
+            "bsonType": "string",
+            "description": "Condições climáticas"
+          },
+          "traffic": {
+            "bsonType": "string",
+            "description": "Condições de trânsito"
+          },
+          "createdAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Data de criação"
+          },
+          "updatedAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Data de atualização"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "validationLevel": "moderate",
+    "validationAction": "warn"
+  }
+}

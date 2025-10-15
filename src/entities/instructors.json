@@ -1,0 +1,98 @@
+
+{
+  "name": "instructors",
+  "options": {
+    "validator": {
+      "$jsonSchema": {
+        "bsonType": "object",
+        "required": ["name", "email", "phone", "categories", "status", "createdAt"],
+        "properties": {
+          "name": {
+            "bsonType": "string",
+            "description": "Nome do instrutor"
+          },
+          "email": {
+            "bsonType": "string",
+            "description": "Email do instrutor"
+          },
+          "phone": {
+            "bsonType": "string",
+            "description": "Telefone do instrutor"
+          },
+          "cpf": {
+            "bsonType": "string",
+            "description": "CPF do instrutor"
+          },
+          "license": {
+            "bsonType": "string",
+            "description": "Número da licença de instrutor"
+          },
+          "categories": {
+            "bsonType": "array",
+            "description": "Categorias que pode ensinar"
+          },
+          "specialties": {
+            "bsonType": "array",
+            "description": "Especialidades do instrutor"
+          },
+          "status": {
+            "bsonType": "string",
+            "enum": ["ativo", "inativo", "ferias", "licenca"],
+            "description": "Status do instrutor"
+          },
+          "avatar": {
+            "bsonType": "string",
+            "description": "URL da foto do instrutor"
+          },
+          "experience": {
+            "bsonType": "int",
+            "minimum": 0,
+            "description": "Anos de experiência"
+          },
+          "rating": {
+            "bsonType": "number",
+            "minimum": 0,
+            "maximum": 5,
+            "description": "Avaliação média"
+          },
+          "totalLessons": {
+            "bsonType": "int",
+            "minimum": 0,
+            "description": "Total de aulas ministradas"
+          },
+          "successRate": {
+            "bsonType": "number",
+            "minimum": 0,
+            "maximum": 100,
+            "description": "Taxa de aprovação dos alunos"
+          },
+          "schedule": {
+            "bsonType": "object",
+            "description": "Horários disponíveis por dia da semana"
+          },
+          "certifications": {
+            "bsonType": "array",
+            "description": "Certificações do instrutor"
+          },
+          "bio": {
+            "bsonType": "string",
+            "description": "Biografia do instrutor"
+          },
+          "createdAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Data de criação"
+          },
+          "updatedAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Data de atualização"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "validationLevel": "moderate",
+    "validationAction": "warn"
+  }
+}

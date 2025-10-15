@@ -1,0 +1,127 @@
+{
+    "name": "payments",
+    "options": {
+        "validator": {
+            "$jsonSchema": {
+                "bsonType": "object",
+                "required": [
+                    "student_id",
+                    "amount",
+                    "method",
+                    "status",
+                    "createdAt"
+                ],
+                "properties": {
+                    "student_id": {
+                        "bsonType": "string",
+                        "description": "ID do aluno"
+                    },
+                    "amount": {
+                        "bsonType": "number",
+                        "minimum": 0,
+                        "description": "Valor do pagamento"
+                    },
+                    "method": {
+                        "bsonType": "string",
+                        "enum": [
+                            "cartao_credito",
+                            "cartao_debito",
+                            "pix",
+                            "boleto",
+                            "dinheiro",
+                            "transferencia"
+                        ],
+                        "description": "Método de pagamento"
+                    },
+                    "status": {
+                        "bsonType": "string",
+                        "enum": [
+                            "pendente",
+                            "processando",
+                            "aprovado",
+                            "recusado",
+                            "estornado",
+                            "cancelado"
+                        ],
+                        "description": "Status do pagamento"
+                    },
+                    "description": {
+                        "bsonType": "string",
+                        "description": "Descrição do pagamento"
+                    },
+                    "category": {
+                        "bsonType": "string",
+                        "enum": [
+                            "matricula",
+                            "mensalidade",
+                            "aula_extra",
+                            "exame",
+                            "material",
+                            "multa"
+                        ],
+                        "description": "Categoria do pagamento"
+                    },
+                    "installments": {
+                        "bsonType": "int",
+                        "minimum": 1,
+                        "description": "Número de parcelas"
+                    },
+                    "installmentNumber": {
+                        "bsonType": "int",
+                        "minimum": 1,
+                        "description": "Número da parcela atual"
+                    },
+                    "dueDate": {
+                        "bsonType": "string",
+                        "title": "datetime",
+                        "description": "Data de vencimento"
+                    },
+                    "paidAt": {
+                        "bsonType": "string",
+                        "title": "datetime",
+                        "description": "Data do pagamento"
+                    },
+                    "transactionId": {
+                        "bsonType": "string",
+                        "description": "ID da transação"
+                    },
+                    "gateway": {
+                        "bsonType": "string",
+                        "description": "Gateway de pagamento usado"
+                    },
+                    "receipt": {
+                        "bsonType": "string",
+                        "description": "URL do comprovante"
+                    },
+                    "notes": {
+                        "bsonType": "string",
+                        "description": "Observações"
+                    },
+                    "discount": {
+                        "bsonType": "number",
+                        "minimum": 0,
+                        "description": "Desconto aplicado"
+                    },
+                    "tax": {
+                        "bsonType": "number",
+                        "minimum": 0,
+                        "description": "Taxa adicional"
+                    },
+                    "createdAt": {
+                        "bsonType": "string",
+                        "title": "datetime",
+                        "description": "Data de criação"
+                    },
+                    "updatedAt": {
+                        "bsonType": "string",
+                        "title": "datetime",
+                        "description": "Data de atualização"
+                    }
+                },
+                "additionalProperties": true
+            }
+        },
+        "validationLevel": "moderate",
+        "validationAction": "warn"
+    }
+}
